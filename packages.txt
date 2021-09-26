@@ -1,0 +1,23 @@
+This file is a list of all packages I use the most. I use it when I have to change mt OS or something. 
+It's public because I don't care and it can be usefull for someone I guess
+
+
+Graphic Card driver :
+sudo apt install firmware-linux-nonfree firmware-amd-graphics libgl1-mesa-dri libglx-mesa0 mesa-vulkan-drivers xserver-xorg-video-all
+
+Setup : 
+i3
+i3 gaps
+compton
+feh
+rofi
+urxvt
+
+other packages
+firefox
+steam
+nodejs (from website, not APT)
+rustc
+vim
+sublimetext (from website)
+git
