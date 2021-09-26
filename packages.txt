@@ -12,6 +12,7 @@ compton
 feh
 rofi
 urxvt
+polybar
 
 other packages
 firefox
