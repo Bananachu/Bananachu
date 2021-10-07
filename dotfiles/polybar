@@ -1,0 +1,155 @@
+# Bananachu's Polybar config file
+# 
+# It's used only on my machine, so it
+# would probably doesn't work correctly
+# with yours. Of course, you can take 
+# everything that interest you and use
+# it as you want.
+# 
+# Thanks to all the Polybar's devs !
+
+
+[colors]
+background = ${xrdb:background0}
+background-alt = ${xrdb:background1}
+background-alert = ${xrdb:background2}
+foreground = ${xrdb:foreground0}
+primary = ${xrdb:primary0}
+primary-dark = ${xrdb:primary1}
+secondary = ${xrdb:secondary0}
+secondary-dark = ${xrdb:secondary1}
+alert = #bd2c40
+
+
+
+[bar/example]
+
+# General bar settings
+monitor = ${env:MONITOR:VGA-0}
+width = 100%
+height = 28
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 1
+border-top-size = 10
+border-right-size = 10
+border-left-size = 10
+border-down-size = 0
+fixed-center = true
+
+# Fonts
+font-0 = Noto Sans Mono:pixelsize=10;1
+font-1 = FontAwesome:size=12;2
+font-2 = siji:pixelsize=10;1
+
+# Modules positions
+modules-left = pinguni i3
+modules-center = date
+modules-right = alsa temperature
+
+# Tray
+tray-position = right
+tray-padding = 0
+tray-background = ${colors.background-alt}
+
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = true
+
+# All workspaces
+label-mode-padding = 2
+label-mode-foreground = ${colors:foreground}
+label-mode-background = ${colors.background-alt}
+
+# Focused workspaces
+label-focused = %index%
+label-focused-padding = 2
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+
+# Unfocused workspaces
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+# Visible workspaces
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+# Urgent workspaces
+label-urgent = %index%
+label-urgent-background = ${colors.background-alert}
+label-urgent-padding = 2
+
+
+
+[module/date]
+type = internal/date
+interval = 1
+date-alt = %d/%m
+time = "%H:%M "
+time-alt = "%H:%M:%S   "
+label = %date% %time%
+
+
+
+# Volume bar
+[module/alsa]
+type = internal/alsa
+
+format-volume = "<label-volume> <bar-volume>    "
+label-volume = 
+label-volume-foreground = ${colors.secondary}
+
+format-muted = "<label-muted>  <bar-volume>    "
+label-muted = 
+format-muted-foreground = ${colors.secondary}
+
+bar-volume-width = 35
+bar-volume-foreground-0 = ${colors.secondary}
+
+bar-volume-gradient = true
+bar-volume-indicator = ·
+bar-volume-indicator-foreground = ${colors.primary}
+bar-volume-indicator-font = 3
+bar-volume-fill = ·
+bar-volume-fill-font = 3
+bar-volume-empty = ·
+bar-volume-empty-font = 3
+bar-volume-empty-foreground = ${colors.secondary-dark}
+
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = "<label> "
+#format-underline = #f50a4d
+format-warn = "    <label-warn> "
+#format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-font = 0
+label-warn = %temperature-c%
+label-warn-font = 0
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground}
+
+
+
+# the ultimate module you must have in your config
+[module/pinguni]
+type = custom/text
+content = ""
+content-padding = 1
