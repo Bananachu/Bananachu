@@ -1,0 +1,11 @@
+set recolor "true"
+set default-bg "rgba(48,52,70,1.0)"
+set recolor-lightcolor "rgba(00,00,00,0)"
+set guioptions ""
+set first-page-columN 2:1
+set adjust-open best-fit
+map b zoom best-fit
+map <C-Up> zoom in
+map <C-Down> zoom out
+map <S-Up> navigate previous
+map <S-Down> navigate next
